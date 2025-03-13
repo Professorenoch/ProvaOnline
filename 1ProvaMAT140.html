@@ -74,10 +74,13 @@
     </li>
   </ol>
 <!-- Fim da Prova ---->
-  <div style="text-align: center;">
-    <button onclick="window.location.reload();">Gerar outra Prova</button>
-    <button onclick="mostrarRespostas()">Mostrar Respostas</button>
-  </div>
+  <!-- Botoes ---->
+<div style="text-align: center;">
+  <button onclick="window.location.reload();">Gerar outra Prova</button>
+  <button onclick="mostrarRespostas()">Mostrar Respostas</button>
+  <button onclick="aumentarFonte()">Aumentar Fonte</button>
+</div>
+
 
   <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -132,6 +135,13 @@
         ]
       });
     }
+    function aumentarFonte() {
+  const body = document.body;
+  const estiloAtual = window.getComputedStyle(body).fontSize;
+  const tamanhoAtual = parseFloat(estiloAtual);
+  body.style.fontSize = (tamanhoAtual + 2) + "px";
+}
+
   </script>
 
 </body>
