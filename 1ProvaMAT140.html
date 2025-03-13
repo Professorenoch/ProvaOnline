@@ -8,6 +8,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/contrib/auto-render.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     .resposta {
       display: none;
@@ -113,8 +114,8 @@
 <div class="botoes-container">
   <button onclick="window.location.reload();">Outra</button>
   <button onclick="mostrarRespostas()">Respostas</button>
-  <button onclick="aumentarFonte()">Aumentar</button>
-  <button onclick="diminuirFonte()">Diminuir</button>
+  <button onclick="aumentarFonte()" title="Aumentar Fonte"><i class="fas fa-search-plus"></i></button>
+  <button onclick="diminuirFonte()" title="Diminuir Fonte">  <i class="fas fa-search-minus"></i></button>
   <button onclick="window.print()">Imprimir</button>
 </div>
 
