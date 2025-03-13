@@ -16,6 +16,14 @@
     body {
         font-size: 12px; /* Ajuste para o tamanho que você preferir   */
     }
+    .botoes-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap; /* Caso a tela fique pequena, os botões quebram linha */
+}
+
   </style>
 </head>
 <body>
@@ -75,11 +83,13 @@
   </ol>
 <!-- Fim da Prova ---->
   <!-- Botoes ---->
-<div style="text-align: center;">
+<div class="botoes-container">
   <button onclick="window.location.reload();">Gerar outra Prova</button>
   <button onclick="mostrarRespostas()">Mostrar Respostas</button>
   <button onclick="aumentarFonte()">Aumentar Fonte</button>
+  <button onclick="diminuirFonte()">Diminuir Fonte</button>
 </div>
+
 
 
   <script>
@@ -139,7 +149,15 @@
   const body = document.body;
   const estiloAtual = window.getComputedStyle(body).fontSize;
   const tamanhoAtual = parseFloat(estiloAtual);
-  body.style.fontSize = (tamanhoAtual + 2) + "px";
+  body.style.fontSize = (tamanhoAtual + 1) + "px";
+}
+function diminuirFonte() {
+  const body = document.body;
+  const estiloAtual = window.getComputedStyle(body).fontSize;
+  const tamanhoAtual = parseFloat(estiloAtual);
+  if (tamanhoAtual > 6) { // evita fonte muito pequena
+    body.style.fontSize = (tamanhoAtual - 1) + "px";
+  }
 }
 
   </script>
