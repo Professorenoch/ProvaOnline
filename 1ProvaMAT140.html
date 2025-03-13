@@ -34,6 +34,7 @@
     }
     .botoes-container button i {
       font-size: 16px;
+      opacity: 0.5;
     }
     @media print {
       .botoes-container {
@@ -123,11 +124,11 @@
 <!-- Fim da Prova ---->
   <!-- Botoes ---->
 <div class="botoes-container">
-  <button onclick="window.location.reload();">Outra</button>
-  <button onclick="mostrarRespostas()">Respostas</button>
+  <button onclick="window.location.reload();" title="Outra"><i class="fa-solid fa-rotate"></i></button> 
+  <button onclick="mostrarRespostas()" title="Respostas "><i class="fas fa-comment"></i></button>
   <button onclick="aumentarFonte()" title="Aumentar Fonte"><i class="fas fa-search-plus"></i></button>
   <button onclick="diminuirFonte()" title="Diminuir Fonte">  <i class="fas fa-search-minus"></i></button>
-  <button onclick="window.print()">Imprimir</button>
+  <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
 </div>
 
 
