@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -20,9 +19,11 @@
     }
     .botoes-container {
       display: flex;
-      justify-content: center;
       gap: 10px;
-      margin-top: 20px;
+      position: fixed; /* Fixar no topo esquerdo */
+      top: 10px; /* Distância do topo */
+      left: 10px; /* Distância da esquerda */
+      z-index: 1000; /* Garante que os botões fiquem acima de outros elementos */
       flex-wrap: wrap;
     }
     .botoes-container button {
@@ -68,8 +69,7 @@
     <label>Nome: <span class="linha-editavel" contenteditable="true"></span> Matrícula: <span class="linha-editavel" contenteditable="true"></span></label>
   </div>
 
-
-
+  <!-- Questões da prova -->
   <ol>
     <li>
       Calcule os limites:
@@ -94,7 +94,7 @@
     <li>
       Seja \( f(x) = \left\{ 
       \begin{array}{ll}
-      Ax + B, & x &lt; 1 \\
+      Ax + B, & x &lt; 1 \\ 
       {{a}}x^{2} - 2, & x \geq 1
       \end{array}
       \right. \)
@@ -121,19 +121,18 @@
       </ul>
     </li>
   </ol>
-<!-- Fim da Prova ---->
-  <!-- Botoes ---->
-<div class="botoes-container">
-  <button onclick="window.location.reload();" title="Outra"><i class="fa-solid fa-rotate"></i></button> 
-  <button onclick="mostrarRespostas()" title="Respostas "><i class="fas fa-comment"></i></button>
-  <button onclick="aumentarFonte()" title="Aumentar Fonte"><i class="fas fa-search-plus"></i></button>
-  <button onclick="diminuirFonte()" title="Diminuir Fonte">  <i class="fas fa-search-minus"></i></button>
-  <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
-</div>
-
-
+  
+  <!-- Botoes -->
+  <div class="botoes-container">
+    <button onclick="window.location.reload();" title="Outra"><i class="fa-solid fa-rotate"></i></button> 
+    <button onclick="mostrarRespostas()" title="Respostas "><i class="fas fa-comment"></i></button>
+    <button onclick="aumentarFonte()" title="Aumentar Fonte"><i class="fas fa-search-plus"></i></button>
+    <button onclick="diminuirFonte()" title="Diminuir Fonte">  <i class="fas fa-search-minus"></i></button>
+    <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
+  </div>
 
   <script>
+    // Funções JavaScript
     document.addEventListener("DOMContentLoaded", function () {
       function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -175,6 +174,7 @@
         ]
       });
     });
+    
     document.addEventListener("DOMContentLoaded", function () {
       let hoje = new Date();
       let dia = String(hoje.getDate()).padStart(2, '0');
@@ -182,6 +182,7 @@
       let ano = hoje.getFullYear();
       document.getElementById("data-atual").textContent = `${dia}/${mes}/${ano}`;
     });
+    
     function mostrarRespostas() {
       const respostas = document.querySelectorAll('.resposta');
       respostas.forEach(el => el.style.display = 'inline');
@@ -192,21 +193,22 @@
         ]
       });
     }
+    
     function aumentarFonte() {
-  const body = document.body;
-  const estiloAtual = window.getComputedStyle(body).fontSize;
-  const tamanhoAtual = parseFloat(estiloAtual);
-  body.style.fontSize = (tamanhoAtual + 1) + "px";
-}
-function diminuirFonte() {
-  const body = document.body;
-  const estiloAtual = window.getComputedStyle(body).fontSize;
-  const tamanhoAtual = parseFloat(estiloAtual);
-  if (tamanhoAtual > 6) { // evita fonte muito pequena
-    body.style.fontSize = (tamanhoAtual - 1) + "px";
-  }
-}
+      const body = document.body;
+      const estiloAtual = window.getComputedStyle(body).fontSize;
+      const tamanhoAtual = parseFloat(estiloAtual);
+      body.style.fontSize = (tamanhoAtual + 1) + "px";
+    }
 
+    function diminuirFonte() {
+      const body = document.body;
+      const estiloAtual = window.getComputedStyle(body).fontSize;
+      const tamanhoAtual = parseFloat(estiloAtual);
+      if (tamanhoAtual > 6) { // evita fonte muito pequena
+        body.style.fontSize = (tamanhoAtual - 1) + "px";
+      }
+    }
   </script>
 
 </body>
