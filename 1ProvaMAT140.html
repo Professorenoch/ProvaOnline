@@ -36,14 +36,13 @@
   line-height: 2;
 }
 
-.campo-texto {
-  margin-left: 5px;
-  padding: 3px;
-  font-size: 14px;
-  width: 60%;
-  max-width: 300px;
-  box-sizing: border-box;
+.linha-editavel {
+  display: inline-block;
+  border-bottom: 1px solid black;
+  min-width: 200px;
+  padding: 2px 4px;
 }
+
 
   </style>
 </head>
@@ -51,11 +50,11 @@
  <!-- Inicio da Prova -->
   <h1 style="text-align: center;">1 Prova de Cálculo</h1>
 <div class="dados-prova">
-  <label>Nome: <input type="text" class="campo-texto" name="nome"></label><br>
-  <label>Matrícula: <input type="text" class="campo-texto" name="matricula"></label><br>
-  <label>Data: <input type="date" class="campo-texto" name="data"></label><br>
-  <label>Nota: <input type="text" class="campo-texto" name="nota" style="width: 80px;"></label>
+  <label>Nome: <span class="linha-editavel" contenteditable="true"></span></label><br>
+  <label>Matrícula: <span class="linha-editavel" contenteditable="true"></span></label><br>
+  <label>Data: <span id="data-atual"></span></label>
 </div>
+
 
 
   <ol>
