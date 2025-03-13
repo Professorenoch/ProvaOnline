@@ -24,6 +24,11 @@
   margin-top: 20px;
   flex-wrap: wrap; /* Caso a tela fique pequena, os botões quebram linha */
 }
+@media print {
+  .botoes-container {
+    display: none;
+  }
+}
 
   </style>
 </head>
@@ -89,6 +94,7 @@
   <button onclick="mostrarRespostas()">Respostas</button>
   <button onclick="aumentarFonte()">Aumentar</button>
   <button onclick="diminuirFonte()">Diminuir</button>
+  <button onclick="window.print()">Imprimir</button>
 </div>
 
 
