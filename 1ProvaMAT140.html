@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -15,49 +16,51 @@
       color: green;
     }
     body {
-        font-size: 12px; /* Ajuste para o tamanho que você preferir   */
+      font-size: 12px;
     }
-  .botoes-container {
-   border: none;  /* Remove a borda */
-   outline: none; /* Remove o contorno ao focar */
-   background-color: transparent; /* Remove fundo se necessário */
-   font-size: 10px;
-   display: flex;
-   justify-content: center;
-   gap: 10px;
-   margin-top: 20px;
-   flex-wrap: wrap; /* Caso a tela fique pequena, os botões quebram linha */
-}
-@media print {
-  .botoes-container {
-    display: none;
-  }
-}
-.dados-prova {
-  margin: 20px auto;
-  width: 80%;
-  font-size: 14px;
-  line-height: 2;
-}
-
-.linha-editavel {
-  display: inline-block;
-  border-bottom: 1px solid black;
-  min-width: 200px;
-  padding: 2px 4px;
-}
-
-
+    .botoes-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .botoes-container button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      padding: 5px;
+      font-size: 14px;
+    }
+    .botoes-container button i {
+      font-size: 16px;
+    }
+    @media print {
+      .botoes-container {
+        display: none;
+      }
+    }
+    .dados-prova {
+      margin: 20px auto;
+      width: 80%;
+      font-size: 14px;
+      line-height: 2;
+    }
+    .linha-editavel {
+      display: inline-block;
+      border-bottom: 1px solid black;
+      min-width: 200px;
+      padding: 2px 4px;
+    }
   </style>
 </head>
 <body>
  <!-- Inicio da Prova -->
   <h1 style="text-align: center;">1 Prova de Cálculo</h1>
-<div class="dados-prova">
-  <label>Nome: <span class="linha-editavel" contenteditable="true"></span></label><br>
-  <label>Matrícula: <span class="linha-editavel" contenteditable="true"></span></label><br>
-  <label>Data: <span id="data-atual"></span></label>
-</div>
+  <p style="text-align: center; font-size: 14px;"><strong>Data: <span id="data-atual"></span></strong></p>
+  <div class="dados-prova">
+    <label>Nome: <span class="linha-editavel" contenteditable="true"></span> Matrícula: <span class="linha-editavel" contenteditable="true"></span></label>
+  </div>
 
 
 
@@ -166,7 +169,13 @@
         ]
       });
     });
-
+    document.addEventListener("DOMContentLoaded", function () {
+      let hoje = new Date();
+      let dia = String(hoje.getDate()).padStart(2, '0');
+      let mes = String(hoje.getMonth() + 1).padStart(2, '0');
+      let ano = hoje.getFullYear();
+      document.getElementById("data-atual").textContent = `${dia}/${mes}/${ano}`;
+    });
     function mostrarRespostas() {
       const respostas = document.querySelectorAll('.resposta');
       respostas.forEach(el => el.style.display = 'inline');
