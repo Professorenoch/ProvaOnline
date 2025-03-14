@@ -86,7 +86,7 @@
   </div>
 <script src="js/script.js"></script>
 <script>
-  // Suporte ao toque (celular)
+  // Toque (celular)
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -99,7 +99,7 @@
     handleSwipe(touchStartX, touchEndX);
   }, false);
 
-  // Suporte ao mouse (desktop)
+  // Mouse (computador)
   let mouseDownX = 0;
   let mouseUpX = 0;
 
@@ -112,13 +112,20 @@
     handleSwipe(mouseDownX, mouseUpX);
   }, false);
 
+  // Função que decide a direção do arrasto
   function handleSwipe(startX, endX) {
-    if (startX - endX > 50) {
-      // Deslizou ou arrastou para a esquerda
+    let deslocamento = endX - startX;
+
+    if (deslocamento < -50) {
+      // Esquerda → próxima prova
       window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
+    } else if (deslocamento > 50) {
+      // Direita → prova anterior (ou outra página)
+      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaMAT140.html";
     }
   }
 </script>
+
 
 
 
