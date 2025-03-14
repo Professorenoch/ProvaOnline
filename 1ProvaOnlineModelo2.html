@@ -104,5 +104,45 @@
     <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
   </div>
 <script src="js/script.js"></script>
+  <script>
+  // Toque (celular)
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  document.addEventListener("touchstart", function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+  }, false);
+
+  document.addEventListener("touchend", function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe(touchStartX, touchEndX);
+  }, false);
+
+  // Mouse (computador)
+  let mouseDownX = 0;
+  let mouseUpX = 0;
+
+  document.addEventListener("mousedown", function(event) {
+    mouseDownX = event.screenX;
+  }, false);
+
+  document.addEventListener("mouseup", function(event) {
+    mouseUpX = event.screenX;
+    handleSwipe(mouseDownX, mouseUpX);
+  }, false);
+
+  // Função que decide a direção do arrasto
+  function handleSwipe(startX, endX) {
+    let deslocamento = endX - startX;
+
+    if (deslocamento < -50) {
+      // Esquerda → próxima prova
+      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaMAT140.html";
+    } else if (deslocamento > 50) {
+      // Direita → prova anterior (ou outra página)
+      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
+    }
+  }
+</script>
 </body>
 </html>
