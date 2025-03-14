@@ -85,27 +85,41 @@
     <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
   </div>
 <script src="js/script.js"></script>
-<script >
-let touchStartX = 0;
-let touchEndX = 0;
+<script>
+  // Suporte ao toque (celular)
+  let touchStartX = 0;
+  let touchEndX = 0;
 
-document.addEventListener("touchstart", function(event) {
-  touchStartX = event.changedTouches[0].screenX;
-}, false);
+  document.addEventListener("touchstart", function(event) {
+    touchStartX = event.changedTouches[0].screenX;
+  }, false);
 
-document.addEventListener("touchend", function(event) {
-  touchEndX = event.changedTouches[0].screenX;
-  handleSwipe();
-}, false);
+  document.addEventListener("touchend", function(event) {
+    touchEndX = event.changedTouches[0].screenX;
+    handleSwipe(touchStartX, touchEndX);
+  }, false);
 
-function handleSwipe() {
-  if (touchStartX - touchEndX > 50) {
-    // Deslizou para a esquerda
-    window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
+  // Suporte ao mouse (desktop)
+  let mouseDownX = 0;
+  let mouseUpX = 0;
+
+  document.addEventListener("mousedown", function(event) {
+    mouseDownX = event.screenX;
+  }, false);
+
+  document.addEventListener("mouseup", function(event) {
+    mouseUpX = event.screenX;
+    handleSwipe(mouseDownX, mouseUpX);
+  }, false);
+
+  function handleSwipe(startX, endX) {
+    if (startX - endX > 50) {
+      // Deslizou ou arrastou para a esquerda
+      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
+    }
   }
-}
-
 </script>
+
 
 
 
