@@ -1,1 +1,51 @@
+.resposta {
+  display: none;
+  color: green;
+}
+body {
+  font-size: 12px;
+}
+.botoes-container {
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+.botoes-container button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 14px;
+}
+.botoes-container button i {
+  font-size: 16px;
+  opacity: 0.5;
+}
+@media print {
+  .botoes-container {
+    display: none;
+  }
+}
+.dados-prova {
+  margin: 20px auto;
+  width: 80%;
+  font-size: 14px;
+  line-height: 2;
+}
+.linha-editavel {
+  display: inline-block;
+  border-bottom: 1px solid black;
+  min-width: 50px;
+  padding: 2px 4px;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+h1 {
+  margin-top: 60px;
+}
 
