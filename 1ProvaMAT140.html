@@ -85,19 +85,16 @@
     <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
   </div>
 <script src="js/script.js"></script>
-  <p onmouseover="abrirOutraProva()" style="text-align: center; cursor: pointer; color: blue; text-decoration: underline;">
-  👉 Passe o mouse aqui para abrir outra prova
+ <p onmouseover="abrirOutraProva()" style="cursor: pointer; color: blue; text-decoration: underline;">
+  Passe o mouse aqui para abrir outra prova
 </p>
 
 <script>
-  let jaAbriu = false;
   function abrirOutraProva() {
-    if (!jaAbriu) {
-      window.open('https://SEU_USUARIO.github.io/NOME-DO-REPOSITORIO/index.html', '_blank');
-      jaAbriu = true;
-    }
+    window.open('https://seu-link-da-outra-prova.com', '_blank');
   }
 </script>
+
 
 </body>
 </html>
