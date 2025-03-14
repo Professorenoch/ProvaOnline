@@ -2,9 +2,7 @@
   display: none;
   color: green;
 }
-body {
-  font-size: 12px;
-}
+
 .botoes-container {
   display: flex;
   gap: 10px;
