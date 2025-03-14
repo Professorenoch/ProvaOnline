@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  let a = getRandomInt(2, 5);
-  let b = getRandomInt(8, 13);
-  let c = getRandomInt(6, 9);
+  let a = getRandomInt(2, 4);
+  let b = getRandomInt(5, 7);
+  let c = getRandomInt(8, 9);
   let d = getRandomInt(1, 5);
   let e = getRandomInt(1, 5);
   let f = 4 * e;
