@@ -87,7 +87,9 @@
   </div>
 <script src="js/script.js"></script>
 <script>
-  // Toque (celular)
+  // =======================
+  // SWIPE NO CELULAR
+  // =======================
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -100,20 +102,22 @@
     handleSwipe(touchStartX, touchEndX);
   }, false);
 
-  // Mouse (computador)
-  let mouseDownX = 0;
-  let mouseUpX = 0;
+  // =======================
+  // TECLAS NO COMPUTADOR
+  // =======================
+  document.addEventListener("keydown", function(event) {
+    if (event.key === "ArrowRight") {
+      // seta para direita → próxima prova
+      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
+    } else if (event.key === "ArrowLeft") {
+      // seta para esquerda → prova anterior
+      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaMAT140.html";
+    }
+  });
 
-  document.addEventListener("mousedown", function(event) {
-    mouseDownX = event.screenX;
-  }, false);
-
-  document.addEventListener("mouseup", function(event) {
-    mouseUpX = event.screenX;
-    handleSwipe(mouseDownX, mouseUpX);
-  }, false);
-
-  // Função que decide a direção do arrasto
+  // =======================
+  // FUNÇÃO DE SWIPE
+  // =======================
   function handleSwipe(startX, endX) {
     let deslocamento = endX - startX;
 
@@ -121,7 +125,7 @@
       // Esquerda → próxima prova
       window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
     } else if (deslocamento > 50) {
-      // Direita → prova anterior (ou outra página)
+      // Direita → prova anterior
       window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaMAT140.html";
     }
   }
