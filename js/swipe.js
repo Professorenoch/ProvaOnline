@@ -13,7 +13,7 @@ document.addEventListener("touchend", function(event) {
 function handleSwipe() {
   if (touchStartX - touchEndX > 50) {
     // Deslizou para a esquerda
-    window.location.href = "https://SEU_USUARIO.github.io/NOME-DO-REPOSITORIO/index.html";
+    window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
   }
 }
 
