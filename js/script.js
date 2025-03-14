@@ -43,12 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
   let dia = String(hoje.getDate()).padStart(2, '0');
   let mes = String(hoje.getMonth() + 1).padStart(2, '0');
   let ano = hoje.getFullYear();
-  document.getElementById("data-atual").textContent = `${dia}/${mes}/${ano}`;
+ 
 
   let horas = String(hoje.getHours()).padStart(2, '0');
   let minutos = String(hoje.getMinutes()).padStart(2, '0');
   let segundos = String(hoje.getSeconds()).padStart(2, '0');
   document.getElementById("hora-atual").textContent = `${horas}:${minutos}:${segundos}`;
+  document.getElementById("data-atual").textContent = `${dia}/${mes}/${ano}`;
 });
 
 function mostrarRespostas() {
