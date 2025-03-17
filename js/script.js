@@ -105,18 +105,18 @@ function diminuirFonte() {
     body.style.fontSize = (tamanhoAtual - 1) + "px";
   }
 }
-function alternarModelo() {
-  // Obter os modelos
-  var modelo1 = document.getElementById("modelo1");
-  var modelo2 = document.getElementById("modelo2");
-  var modelo3 = document.getElementById("modelo3");
+    function alternarModelo() {
+      var modelo1 = document.getElementById('modelo1');
+      var modelo2 = document.getElementById('modelo2');
+      var botaoModelo = document.getElementById('botaoModelo');
 
-  // Alternar entre os modelos
-  if (modelo1.style.display === "block") {
-    modelo1.style.display = "none";
-    modelo2.style.display = "block";
-  } else if (modelo2.style.display === "block") {
-    modelo2.style.display = "none";
-    modelo1.style.display = "block";
-  }
-}
+      if (modelo1.style.display === 'block') {
+        modelo1.style.display = 'none';
+        modelo2.style.display = 'block';
+        botaoModelo.innerHTML = 'Ver Modelo 1';
+      } else {
+        modelo1.style.display = 'block';
+        modelo2.style.display = 'none';
+        botaoModelo.innerHTML = 'Ver Modelo 2';
+      }
+    }
