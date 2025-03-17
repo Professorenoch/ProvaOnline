@@ -12,19 +12,21 @@
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  
-  <!-- Inicio da 1 Prova  MODELO 1 -->
-<!-- Inicio da Prova -->
+<!-- Cabeçalho-->
   <h1 style="text-align: center;">1 Prova de Cálculo</h1>
   <p style="text-align: center; ">Professor: Enoch Apaza</p>
  <p style="text-align: center;">  <span id="data-atual"></span>  &nbsp;&nbsp;&nbsp;  <span id="hora-atual"></span></p>
-  <p style="text-align: center; ">Modelo 1</p>
-
- 
   <div class="dados-prova">
     <label>Nome: <span class="linha-editavel" contenteditable="true"></span>  </label>
   </div>
-
+  
+   <!-- Botão para alternar entre os modelos -->
+  <div style="text-align: center;">
+    <button onclick="alternarModelo()" id="botaoModelo">Alternar Modelo</button>
+  </div>
+ <!-- Modelos de prova -->
+  <div id="modelo1" class="modelo" style="display: block;">
+   <p style="text-align: center; ">Modelo 1</p>
   <!-- Questões da prova -->
   <ol>
     <li>
@@ -78,18 +80,11 @@
     </li>
   </ol>
   <!-- Fim da 1 Prova  MODELO 1 -->
+    </div>
   
-  <!-- Inicio da 1 Prova  MODELO 2 -->
-  <h1 style="text-align: center;">1 Prova de Cálculo</h1>
-  <p style="text-align: center; ">Professor: Enoch Apaza</p>
-  <p style="text-align: center; ">  <span id="data-atual"></span>  &nbsp;&nbsp;&nbsp;  <span id="hora-atual"></span></p>
-  <p style="text-align: center; ">Modelo 2</p>
-
-  <div class="dados-prova">
-    <label>Nome: <span class="linha-editavel" contenteditable="true"></span> Matrícula: <span class="linha-editavel" contenteditable="true"></span></label>
-  </div>
-
-<!-- Questões da prova -->
+<div id="modelo2" class="modelo" style="display: none;">
+    <p style="text-align: center;">Modelo 2</p>
+    <!-- Questões do Modelo 2 -->
 <ol>
   <li>
     <!-- 1 -->
@@ -165,7 +160,7 @@
   </li>
 </ol>
  <!-- Fim da 1 Prova  MODELO 2 -->
-
+  </div>
   
 <!-- Botoes -->
 <div class="botoes-container">
