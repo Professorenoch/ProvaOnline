@@ -117,9 +117,6 @@ function alternarModelo() {
     modelo2.style.display = "block";
   } else if (modelo2.style.display === "block") {
     modelo2.style.display = "none";
-    modelo3.style.display = "block";
-  } else if (modelo3.style.display === "block") {
-    modelo3.style.display = "none";
     modelo1.style.display = "block";
   }
 }
