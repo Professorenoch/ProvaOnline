@@ -45,37 +45,23 @@
 h3 {
   margin-top: 60px;
 }
- #botaoModelo {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: background-color 0.3s ease;
-  }
-
-  #botaoModelo:hover {
-    background-color: #45a049;
-  }
-.icone-direita {
+#botaoModelo {
   position: fixed;
   top: 10px;
   right: 10px;
-  font-size: 20px;
-  color: #333;
-  z-index: 1000;
+  border: none;
+  background: none;
   cursor: pointer;
-  hover {
-    background-color: #45a049;
+  padding: 5px;
+  font-size: 14px;
+  z-index: 1000;
 }
- .icone-direita:hover {
-    background-color: #45a049;
-  }
+
+#botaoModelo i {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+#botaoModelo i:hover {
+  opacity: 1;
+}
