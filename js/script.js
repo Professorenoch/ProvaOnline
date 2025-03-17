@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let cc = c * c;
   let RA = a * a + 2;  
   let RB = a * a + 2; 
-  let ccMaisc = c * c +c;
+  let ccMaisc = c * c + c;
 
 document.body.innerHTML = document.body.innerHTML
     .replace(/{{a}}/g, a)
