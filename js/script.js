@@ -113,10 +113,10 @@ function diminuirFonte() {
       if (modelo1.style.display === 'block') {
         modelo1.style.display = 'none';
         modelo2.style.display = 'block';
-        botaoModelo.innerHTML = 'Ver Modelo 1';
+        botaoModelo.innerHTML = 'Outro Modelo';
       } else {
         modelo1.style.display = 'block';
         modelo2.style.display = 'none';
-        botaoModelo.innerHTML = 'Ver Modelo 2';
+        botaoModelo.innerHTML = 'Outro Modelo';
       }
     }
