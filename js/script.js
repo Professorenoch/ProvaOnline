@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let d = getRandomInt(1, 5);
   let e = getRandomInt(1, 5);
   let f = 4 * e;
+
   let aMc = a + c;
   let DoisaMb = 2 * a + b;
   let ab = a * b;
@@ -17,13 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
   let cMenosa = c - a;
   let Doisa = 2 * a;
   let aMais2 = a + 2;
-  let aMais1 = a+1;
-  let aMaisb = a+b;
-  let aaMais1  a= a*a+1;
-  let aaMais2  a= a*a+2;
+  let aMais1 = a + 1;
+  let aMaisb = a + b;
+  let aaMais1 = a * a + 1;  // <<< Corrigido
+  let aaMais2 = a * a + 2;  // <<< Corrigido
 
-
-  document.body.innerHTML = document.body.innerHTML.replace(/{{a}}/g, a)
+document.body.innerHTML = document.body.innerHTML
+    .replace(/{{a}}/g, a)
     .replace(/{{b}}/g, b)
     .replace(/{{c}}/g, c)
     .replace(/{{d}}/g, d)
@@ -36,8 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
     .replace(/{{Doisa}}/g, Doisa)
     .replace(/{{aMais2}}/g, aMais2)
     .replace(/{{DoisaMb}}/g, DoisaMb)
-   .replace(/{{aaMais2}}/g, aaMais2)
-   .replace(/{{aaMais1}}/g, aaMais1);
+    .replace(/{{aaMais2}}/g, aaMais2)
+    .replace(/{{aaMais1}}/g, aaMais1)
+    .replace(/{{aMaisb}}/g, aMaisb);
 
   renderMathInElement(document.body, {
     delimiters: [
