@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let aMaisb = a + b;
   let aaMais1 = a * a + 1;  // <<< Corrigido
   let aaMais2 = a * a + 2;  // <<< Corrigido
-   let cc = c * c;
+  let cc = c * c;
 
 document.body.innerHTML = document.body.innerHTML
     .replace(/{{a}}/g, a)
