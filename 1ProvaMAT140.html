@@ -10,20 +10,23 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.0/katex.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="css/estilos.css">
-  
 </head>
 <body>
-  <!-- Inicio da Prova -->
+<!-- Cabeçalho-->
   <h1 style="text-align: center;">1 Prova de Cálculo</h1>
   <p style="text-align: center; ">Professor: Enoch Apaza</p>
  <p style="text-align: center;">  <span id="data-atual"></span>  &nbsp;&nbsp;&nbsp;  <span id="hora-atual"></span></p>
-  <p style="text-align: center; ">Modelo 1</p>
-
- 
   <div class="dados-prova">
-    <label>Nome: <span class="linha-editavel" contenteditable="true"></span> Matrícula: <span class="linha-editavel" contenteditable="true"></span></label>
+    <label>Nome: <span class="linha-editavel" contenteditable="true"></span>  </label>
   </div>
-
+  
+   <!-- Botão para alternar entre os modelos -->
+  <div style="text-align: center;">
+    <button onclick="alternarModelo()" id="botaoModelo">Alternar Modelo</button>
+  </div>
+ <!-- Modelos de prova -->
+  <div id="modelo1" class="modelo" style="display: block;">
+   <p style="text-align: center; ">Modelo 1</p>
   <!-- Questões da prova -->
   <ol>
     <li>
@@ -76,64 +79,99 @@
       </ul>
     </li>
   </ol>
+  <!-- Fim da 1 Prova  MODELO 1 -->
+    </div>
   
-  <!-- Botoes -->
-  <div class="botoes-container">
-    <button onclick="window.location.reload();" title="Outra"><i class="fa-solid fa-rotate"></i></button> 
-    <button onclick="mostrarRespostas()" title="Respostas "><i class="fas fa-comment"></i></button>
-    <button onclick="aumentarFonte()" title="Aumentar Fonte"><i class="fas fa-search-plus"></i></button>
-    <button onclick="diminuirFonte()" title="Diminuir Fonte">  <i class="fas fa-search-minus"></i></button>
-    <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
+<div id="modelo2" class="modelo" style="display: none;">
+    <p style="text-align: center;">Modelo 2</p>
+    <!-- Questões do Modelo 2 -->
+<ol>
+  <li>
+    <!-- 1 -->
+    Calcule os limites a seguir:
+    <ul>
+      <li>
+        \( \lim\limits_{x \rightarrow {{a}}} \frac{x^{3} - {{a}} x^{2} + 2x - 2{{a}}}{x^{3} - {{a}} x^{2} + x - {{a}}} \)<br>
+        <span class="resposta">Resposta: \( \frac{{{aaMais2}}}{{{aaMais1}}} \)</span>
+      </li>
+      <li>
+        \( \lim\limits_{x \rightarrow {{a}}} \frac{\sin(x - {{a}}) - \tan(x - {{a}})}{x^{2} - {{a}}^{2}} \)<br>
+        <span class="resposta">Resposta: \( 0 \)</span>
+      </li>
+    </ul>
+  </li>
+<!-- 2 -->
+  <li>
+    <ul>
+      <li>
+        Determine as assíntotas verticais, caso existam, de \( f(x) = \frac{x - {{c}}}{x^{2} - {{aMaisb}}x + {{ab}}} \)<br>
+        <span class="resposta">Resposta: \( x = {{a}} \) e \( x = {{b}} \)</span>
+      </li>
+      <li>
+        Determine as assíntotas horizontais, caso existam, de \( f(x) = \frac{{{b}} x + {{c}}}{\sqrt{{{a}}^{2}x^{2} + {{b}} x + {{c}}}} \)<br>
+        <span class="resposta">Resposta: \( y = \frac{{{b}}}{{{a}}} \) e \( y = -\frac{{{b}}}{{{a}}} \)</span>
+      </li>
+    </ul>
+  </li>
+   <!-- 3-->
+  <li>
+    Seja \( f(x) = \left\{ 
+    \begin{array}{ll}
+    Ax + B, & \text{se } x < {{c}} \\
+    {{a}}, & \text{se } x = {{c}} \\
+    Ax^{2} - B, & \text{se } x > {{c}}
+    \end{array}
+    \right. \)
+    <ul>
+      <li>
+        Determine \( \lim\limits_{x \rightarrow {{c}}^+} f(x) \)<br>
+        <span class="resposta">Resposta: \( {{c}} A + B \)</span>
+      </li>
+      <li>
+        Determine \( \lim\limits_{x \rightarrow {{c}}^-} f(x) \)<br>
+        <span class="resposta">Resposta: \( {{cc}} A - B \)</span>
+      </li>
+      <li>
+        Determine os valores de \( A \) e \( B \) para que \( f \) seja contínua em \( x = {{c}} \)<br> 
+        <span class="resposta">Resposta: \( A = \frac{{{Doisa}}}{{{ccMaisc}}} \), \( B = \frac{{{acMenosa}}}{{{cMais1}}} \)</span>
+      </li>
+    </ul>
+  </li>
+   <!-- 4-->
+  <li>
+    Considere a função \( f(x) = x^3 + {{a}} \)
+    <ul>
+      <li>
+        Encontre a equação da reta tangente ao gráfico de \( f \) no ponto \( (-1, {{aMenos1}}) \)<br>
+        <span class="resposta">Resposta: \( y = 3x + {{aMais2}} \)</span>
+      </li>
+      <li>
+        Esboce o gráfico de \( f \) e da sua reta tangente no ponto \( (-1, {{aMenos1}} ) \)
+      </li>
+      <li>
+        Calcule a derivada de \( f \) usando a definição de derivada.
+      </li>
+    </ul>
+  </li>
+
+  <li>
+    Calcule \( f'(x) \), para \( f(x) = \frac{x^2 - {{a}}}{x^2 + {{a}}} \). Simplifique o resultado o máximo possível.<br>
+    <span class="resposta">Resposta: \( \frac{{{Quatroa}} x}{(x^2 + {{aa}})} \)</span>
+  </li>
+</ol>
+ <!-- Fim da 1 Prova  MODELO 2 -->
   </div>
+  
+<!-- Botoes -->
+<div class="botoes-container">
+  <button onclick="window.location.reload();" title="Outra"><i class="fa-solid fa-rotate"></i></button> 
+  <button onclick="mostrarRespostas()" title="Respostas "><i class="fas fa-comment"></i></button>
+  <button onclick="aumentarFonte()" title="Aumentar Fonte"><i class="fas fa-search-plus"></i></button>
+  <button onclick="diminuirFonte()" title="Diminuir Fonte">  <i class="fas fa-search-minus"></i></button>
+  <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
+</div>
+
 <script src="js/script.js"></script>
-<script>
-  // =======================
-  // SWIPE NO CELULAR
-  // =======================
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  document.addEventListener("touchstart", function(event) {
-    touchStartX = event.changedTouches[0].screenX;
-  }, false);
-
-  document.addEventListener("touchend", function(event) {
-    touchEndX = event.changedTouches[0].screenX;
-    handleSwipe(touchStartX, touchEndX);
-  }, false);
-
-  // =======================
-  // TECLAS NO COMPUTADOR
-  // =======================
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowRight") {
-      // seta para direita → próxima prova
-      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
-    } //else if (event.key === "ArrowLeft") {
-      // seta para esquerda → prova anterior
-     // window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaMAT140.html";
-   // }
-  });
-
-  // =======================
-  // FUNÇÃO DE SWIPE
-  // =======================
-  function handleSwipe(startX, endX) {
-    let deslocamento = endX - startX;
-
-    if (deslocamento < -50) {
-      // Esquerda → próxima prova
-      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaOnlineModelo2.html";
-    } //else if (deslocamento > 50) {
-      // Direita → prova anterior
-     // window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaMAT140.html";
-    //}
-  }
-</script>
-
-
-
-
 
 </body>
 </html>
