@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", function () {
     .replace(/{{cMenosa}}/g, cMenosa)
     .replace(/{{Doisa}}/g, Doisa)
     .replace(/{{aMais2}}/g, aMais2)
-    .replace(/{{DoisaMb}}/g, DoisaMb);
-   .replace(/{{aaMais2}}/g, aaMais2);
+    .replace(/{{DoisaMb}}/g, DoisaMb)
+   .replace(/{{aaMais2}}/g, aaMais2)
    .replace(/{{aaMais1}}/g, aaMais1);
 
   renderMathInElement(document.body, {
