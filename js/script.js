@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let cMenosa = c - a;
   let Doisa = 2 * a;
   let aMais2 = a + 2;
+  let aaMais1 = a+1;
   let aMAisb =a+b;
 
   document.body.innerHTML = document.body.innerHTML.replace(/{{a}}/g, a)
