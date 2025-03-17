@@ -65,3 +65,12 @@ h3 {
   #botaoModelo:hover {
     background-color: #45a049;
   }
+.icone-direita {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  color: #333;
+  z-index: 1000;
+  cursor: pointer;
+}
