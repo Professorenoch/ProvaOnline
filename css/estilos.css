@@ -65,20 +65,5 @@ h3 {
 #botaoModelo i:hover {
   opacity: 1;
 }
-body {
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px; /* tamanho base padrão */
-  line-height: 1.6;
-}
-@media (min-width: 768px) {
-  body {
-    font-size: 18px;
-  }
-}
 
-@media (min-width: 1200px) {
-  body {
-    font-size: 25px;
-  }
-}
 
