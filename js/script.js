@@ -23,9 +23,10 @@ document.addEventListener("DOMContentLoaded", function () {
   let aaMais1 = a * a + 1; 
   let aaMais2 = a * a + 2;  
   let cc = c * c;
-  let RA = a * a + 2;  
-  let RB = a * a + 2; 
   let ccMaisc = c * c + c;
+  let cMenos1 = c - 1;
+  let cMais1 = c + 1;
+  let DoiscMenos2 = 2 * c - 2;
 
 document.body.innerHTML = document.body.innerHTML
     .replace(/{{a}}/g, a)
@@ -45,6 +46,9 @@ document.body.innerHTML = document.body.innerHTML
     .replace(/{{aaMais1}}/g, aaMais1)
     .replace(/{{aMaisb}}/g, aMaisb)
     .replace(/{{cc}}/g, cc)
+    .replace(/{{cMenos1}}/g, cMenos1)
+    .replace(/{{cMais1}}/g, cMais1)
+    .replace(/{{DoiscMenos2}}/g, DoiscMenos2)
     .replace(/{{ccMaisc}}/g, ccMaisc);
 
   renderMathInElement(document.body, {
