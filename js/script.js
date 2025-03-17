@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let aMais1 = a+1;
   let aMaisb =a+b;
   let aaMais1  a= a*a+1;
-  let aaMais2  a= a*a+2
+  let aaMais2  a= a*a+2;
 
   document.body.innerHTML = document.body.innerHTML.replace(/{{a}}/g, a)
     .replace(/{{b}}/g, b)
