@@ -12,7 +12,74 @@
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <!-- Inicio da Prova -->
+  
+  <!-- Inicio da 1 Prova  MODELO 1 -->
+<!-- Inicio da Prova -->
+  <h1 style="text-align: center;">1 Prova de Cálculo</h1>
+  <p style="text-align: center; ">Professor: Enoch Apaza</p>
+ <p style="text-align: center;">  <span id="data-atual"></span>  &nbsp;&nbsp;&nbsp;  <span id="hora-atual"></span></p>
+  <p style="text-align: center; ">Modelo 1</p>
+
+ 
+  <div class="dados-prova">
+    <label>Nome: <span class="linha-editavel" contenteditable="true"></span>  </label>
+  </div>
+
+  <!-- Questões da prova -->
+  <ol>
+    <li>
+      Calcule os limites:
+      <ul>
+        <li>
+          \( \lim\limits_{x \rightarrow {{a}}} \frac{2x^{2} - {{DoisaMb}}x + {{ab}}}{x^{2} - {{aMc}}x + {{ac}}} \)<br>
+          <span class="resposta">Resposta: \( \frac{{{bMenosDoisa}}}{{{cMenosa}}} \)</span>
+        </li>
+
+        <li>
+          \( \lim\limits_{x \rightarrow -\infty} \frac{{{a}}x + 5}{\sqrt{x^{2} - {{b}}x + {{c}}}} \)<br>
+          <span class="resposta">Resposta: \( -{{a}} \)</span>
+        </li>
+
+        <li>
+          \( \lim\limits_{x \rightarrow 0} \frac{\text{sen } ({{a}}x)\tan({{b}}x)}{x^{2}\cos(2x)} \)<br>
+          <span class="resposta">Resposta: \( {{ab}} \)</span>
+        </li>
+      </ul>
+    </li>
+
+    <li>
+      Seja \( f(x) = \left\{ 
+      \begin{array}{ll}
+      Ax + B, & x &lt; 1 \\ 
+      {{a}}x^{2} - 2, & x \geq 1
+      \end{array}
+      \right. \)
+      <ul>
+        <li> Encontre os valores de \( A \) e \( B \) para que a função seja contínua e derivável em \( x = 1 \).<br>
+        <span class="resposta">Resposta: \( A = {{Doisa}} \), \( B = -{{aMais2}} \)</span></li>
+        <li> Faça o gráfico da função \( f \).</li>
+      </ul>
+    </li>
+
+    <li>
+      Considere a função \( f(x) = {{a}}x^{4} - {{a}}x^{2} + 2x - 1 \)
+      <ul>
+        <li> Encontre a equação da reta tangente ao gráfico de \( f \) em \( (1, 1) \)</li>
+        <li> Mostre que \( f \) tem pelo menos uma raiz.</li>
+      </ul>
+    </li>
+
+    <li>
+      Calcule as derivadas das funções abaixo:
+      <ul>
+        <li> \( f(x) = (\text{sen } x + \cos x)^2 (x^2 + {{c}}) \)</li>
+        <li> \( f(x) = \frac{2x^2 - 2}{x^2 - {{b}}} \)</li>
+      </ul>
+    </li>
+  </ol>
+  <!-- Fim da 1 Prova  MODELO 1 -->
+  
+  <!-- Inicio da 1 Prova  MODELO 2 -->
   <h1 style="text-align: center;">1 Prova de Cálculo</h1>
   <p style="text-align: center; ">Professor: Enoch Apaza</p>
   <p style="text-align: center; ">  <span id="data-atual"></span>  &nbsp;&nbsp;&nbsp;  <span id="hora-atual"></span></p>
@@ -97,7 +164,9 @@
     <span class="resposta">Resposta: \( \frac{{{Quatroa}} x}{(x^2 + {{aa}})} \)</span>
   </li>
 </ol>
+ <!-- Fim da 1 Prova  MODELO 2 -->
 
+  
 <!-- Botoes -->
 <div class="botoes-container">
   <button onclick="window.location.reload();" title="Outra"><i class="fa-solid fa-rotate"></i></button> 
@@ -108,33 +177,6 @@
 </div>
 
 <script src="js/script.js"></script>
-<script>
-  // SWIPE NO CELULAR
-  let touchStartX = 0;
-  let touchEndX = 0;
 
-  document.addEventListener("touchstart", function(event) {
-    touchStartX = event.changedTouches[0].screenX;
-  }, false);
-
-  document.addEventListener("touchend", function(event) {
-    touchEndX = event.changedTouches[0].screenX;
-    handleSwipe(touchStartX, touchEndX);
-  }, false);
-
-  // TECLAS NO COMPUTADOR
-  document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowRight") {
-      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaMAT140.html";
-    }
-  });
-
-  function handleSwipe(startX, endX) {
-    let deslocamento = endX - startX;
-    if (deslocamento < -50) {
-      window.location.href = "https://professorenoch.github.io/ProvaOnline/1ProvaMAT140.html";
-    }
-  }
-</script>
 </body>
 </html>
