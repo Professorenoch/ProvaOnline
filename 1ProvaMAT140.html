@@ -20,8 +20,7 @@
     <label>Nome: <span class="linha-editavel" contenteditable="true"></span>  </label>
   </div>
   
-   <!-- Botão para alternar entre os modelos -->
-<button onclick="alternarModelo()" id="botaoModelo">Outro Modelo</button>
+
 
  <!-- Modelos de prova -->
   <div id="modelo1" class="modelo" style="display: block;">
@@ -168,6 +167,9 @@
   <button onclick="aumentarFonte()" title="Aumentar Fonte"><i class="fas fa-search-plus"></i></button>
   <button onclick="diminuirFonte()" title="Diminuir Fonte">  <i class="fas fa-search-minus"></i></button>
   <button onclick="window.print()" title="Imprimir"><i class="fas fa-print"></i> </button>
+ <!-- Botão para alternar entre os modelos, com ícone à direita -->
+  <button onclick="alternarModelo()" id="botaoModelo" title="Alternar modelo"> <i class="fa-solid fa-chevron-right" style="margin-left: 8px;"></i>
+  </button>
 </div>
 
 <script src="js/script.js"></script>
