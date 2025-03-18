@@ -3,27 +3,24 @@
   color: green;
 }
 
-.botoes-container {
-  display: flex;
-  gap: 10px;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  flex-wrap: wrap;
-}
-
 .botoes-container button {
+  background-color: #4CAF50; /* Verde elegante */
+  color: white;
   border: none;
-  background: none;
+  padding: 10px 16px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
-  padding: 5px;
-  font-size: 14px;
+  transition: background-color 0.3s ease;
 }
 
-.botoes-container button i {
-  font-size: 16px;
-  opacity: 0.5;
+.botoes-container button:hover {
+  background-color: #45a049; /* Verde um pouco mais escuro ao passar o mouse */
+}
+
+.botoes-container i {
+  pointer-events: none; /* Para garantir que o clique vai no botão, não só no ícone */
 }
 
 @media print {
