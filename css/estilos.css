@@ -10,7 +10,15 @@
   border: none;
   padding: 8px;
   cursor: pointer;
+  display: flex;
+  gap: 10px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  flex-wrap: wrap;
 }
+
 
 /* Ícones verdes elegantes */
 .botoes-container button i {
