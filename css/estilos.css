@@ -5,26 +5,27 @@
 }
 
 /* Botões com apenas ícones visíveis (sem fundo nem borda) */
+.botoes-container {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  display: flex;
+  gap: 10px;
+}
+
+/* Botões com ícones */
 .botoes-container button {
   background: none;
   border: none;
   padding: 8px;
   cursor: pointer;
-  display: inline-flex; /* Mudado de flex para inline-flex */
-  gap: 10px;
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  z-index: 1000;
-  align-items: center; /* Adiciona alinhamento vertical dos ícones */
-  justify-content: center; /* Garante que os ícones fiquem centralizados */
 }
 
 /* Ícones verdes elegantes */
 .botoes-container button i {
   color: #4CAF50;
   font-size: 20px;
-  pointer-events: none; /* Garante que o clique vá para o botão */
 }
 
 /* Efeito hover nos ícones */
@@ -37,29 +38,6 @@
   .botoes-container {
     display: none;
   }
-}
-
-/* Área das informações da prova */
-.dados-prova {
-  margin: 20px auto;
-  width: 80%;
-  line-height: 2;
-}
-
-/* Campos editáveis com sublinhado */
-.linha-editavel {
-  display: inline-block;
-  border-bottom: 1px solid black;
-  min-width: 50px;
-  padding: 2px 4px;
-  outline: none;
-  border: none;
-  background: transparent;
-}
-
-/* Espaçamento superior em títulos */
-h3 {
-  margin-top: 60px;
 }
 
 /* Botão fixo "modelo" no topo direito */
@@ -83,4 +61,25 @@ h3 {
 #botaoModelo i:hover {
   opacity: 1;
   color: #45a049;
+}
+
+/* Outros estilos */
+.dados-prova {
+  margin: 20px auto;
+  width: 80%;
+  line-height: 2;
+}
+
+.linha-editavel {
+  display: inline-block;
+  border-bottom: 1px solid black;
+  min-width: 50px;
+  padding: 2px 4px;
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+h3 {
+  margin-top: 60px;
 }
