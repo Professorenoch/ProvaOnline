@@ -1,7 +1,7 @@
 /* Esconde as respostas inicialmente */
 .resposta {
   display: none;
-  color: green;
+  color: #A8D5BA;  /* Verde pastel claro para as respostas */
 }
 
 /* Contêiner de botões */
@@ -20,18 +20,18 @@
   border: none;
   padding: 8px;
   cursor: pointer;
-  color: #066132d8;  /* Cor padrão para os botões */
+  color: #A8D5BA;  /* Verde pastel claro para os botões */
 }
 
 /* Ícones nos botões */
 .botoes-container button i {
   font-size: 20px;
-  color:#066132d8;  /* Cor dos ícones */
+  color: #A8D5BA;  /* Verde pastel claro para os ícones */
 }
 
 /* Efeito hover nos ícones */
 .botoes-container button i:hover {
-  color: #4CAF50;  /* Mantém a mesma cor durante o hover */
+  color: #76C7B7;  /* Cor suave de hover para um efeito elegante */
 }
 
 /* Oculta os botões ao imprimir */
@@ -50,18 +50,18 @@
   border: none;
   cursor: pointer;
   padding: 5px;
-  color: #066132d8;  /* Cor do botão "modelo" */
+  color: #A8D5BA;  /* Verde pastel claro para o botão "modelo" */
 }
 
 #botaoModelo i {
   font-size: 20px;
-  color: #066132d8;
+  color: #A8D5BA;
   opacity: 0.7;
 }
 
 #botaoModelo i:hover {
   opacity: 1;
-  color: #4CAF50;  /* Mantém a mesma cor durante o hover */
+  color: #76C7B7;  /* Cor suave de hover para o botão modelo */
 }
 
 /* Estilo para o conteúdo da prova */
@@ -74,7 +74,7 @@
 /* Campos editáveis com sublinhado */
 .linha-editavel {
   display: inline-block;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #A8D5BA;  /* Verde pastel claro para sublinhado */
   min-width: 50px;
   padding: 2px 4px;
   outline: none;
@@ -85,4 +85,5 @@
 /* Estilo do título */
 h3 {
   margin-top: 60px;
+  color: #A8D5BA;  /* Verde pastel claro para o título */
 }
