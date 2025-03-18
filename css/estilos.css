@@ -10,15 +10,15 @@
   border: none;
   padding: 8px;
   cursor: pointer;
-  display: flex;
+  display: inline-flex; /* Mudado de flex para inline-flex */
   gap: 10px;
   position: fixed;
   top: 10px;
   left: 10px;
   z-index: 1000;
-  flex-wrap: wrap;
+  align-items: center; /* Adiciona alinhamento vertical dos ícones */
+  justify-content: center; /* Garante que os ícones fiquem centralizados */
 }
-
 
 /* Ícones verdes elegantes */
 .botoes-container button i {
@@ -84,4 +84,3 @@ h3 {
   opacity: 1;
   color: #45a049;
 }
-
