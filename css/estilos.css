@@ -73,3 +73,21 @@ h3 {
 #botaoModelo i:hover {
   opacity: 1;
 }
+/* Fonte padrão para celular (até 600px) */
+body {
+  font-size: 10px;
+}
+
+/* Tablet (entre 601px e 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Computador (acima de 1024px) */
+@media (min-width: 1025px) {
+  body {
+    font-size: 24px;
+  }
+}
