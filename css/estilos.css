@@ -2,6 +2,7 @@
   display: none;
   color: green;
 }
+
 .botoes-container {
   display: flex;
   gap: 10px;
@@ -11,6 +12,7 @@
   z-index: 1000;
   flex-wrap: wrap;
 }
+
 .botoes-container button {
   border: none;
   background: none;
@@ -18,20 +20,24 @@
   padding: 5px;
   font-size: 14px;
 }
+
 .botoes-container button i {
   font-size: 16px;
   opacity: 0.5;
 }
+
 @media print {
   .botoes-container {
     display: none;
   }
 }
+
 .dados-prova {
   margin: 20px auto;
   width: 80%;
   line-height: 2;
 }
+
 .linha-editavel {
   display: inline-block;
   border-bottom: 1px solid black;
@@ -41,9 +47,12 @@
   border: none;
   background: transparent;
 }
+
 h3 {
   margin-top: 60px;
 }
+
+/* Botão fixo no canto superior direito, com estilo igual aos demais */
 #botaoModelo {
   position: fixed;
   top: 10px;
@@ -64,6 +73,3 @@ h3 {
 #botaoModelo i:hover {
   opacity: 1;
 }
-
-
-
