@@ -1,40 +1,44 @@
+/* Esconde as respostas inicialmente */
 .resposta {
   display: none;
   color: green;
 }
 
+/* Botões com apenas ícones visíveis (sem fundo nem borda) */
 .botoes-container button {
-  background-color: #4CAF50; /* Verde elegante */
-  color: white;
+  background: none;
   border: none;
-  padding: 10px 16px;
-  margin: 5px;
-  border-radius: 8px;
-  font-size: 16px;
+  padding: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.botoes-container button:hover {
-  background-color: #45a049; /* Verde um pouco mais escuro ao passar o mouse */
+/* Ícones verdes elegantes */
+.botoes-container button i {
+  color: #4CAF50;
+  font-size: 20px;
+  pointer-events: none; /* Garante que o clique vá para o botão */
 }
 
-.botoes-container i {
-  pointer-events: none; /* Para garantir que o clique vai no botão, não só no ícone */
+/* Efeito hover nos ícones */
+.botoes-container button i:hover {
+  color: #45a049;
 }
 
+/* Oculta os botões ao imprimir */
 @media print {
   .botoes-container {
     display: none;
   }
 }
 
+/* Área das informações da prova */
 .dados-prova {
   margin: 20px auto;
   width: 80%;
   line-height: 2;
 }
 
+/* Campos editáveis com sublinhado */
 .linha-editavel {
   display: inline-block;
   border-bottom: 1px solid black;
@@ -45,40 +49,43 @@
   background: transparent;
 }
 
+/* Espaçamento superior em títulos */
 h3 {
   margin-top: 60px;
 }
 
-/* Botão fixo no canto superior direito, com estilo igual aos demais */
+/* Botão fixo "modelo" no topo direito */
 #botaoModelo {
   position: fixed;
   top: 10px;
   right: 10px;
-  border: none;
   background: none;
+  border: none;
   cursor: pointer;
   padding: 5px;
-  font-size: 14px;
   z-index: 1000;
 }
 
 #botaoModelo i {
-  font-size: 16px;
-  opacity: 0.5;
+  font-size: 20px;
+  color: #4CAF50;
+  opacity: 0.7;
 }
 
 #botaoModelo i:hover {
   opacity: 1;
+  color: #45a049;
 }
-/* Fonte padrão para celular */
+
+/* Responsividade da fonte da prova */
 .conteudo-prova {
-  font-size: 12px;
+  font-size: 10px; /* Celular */
 }
 
 /* Tablet */
 @media (min-width: 601px) and (max-width: 1024px) {
   .conteudo-prova {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
@@ -88,4 +95,3 @@ h3 {
     font-size: 24px;
   }
 }
-
