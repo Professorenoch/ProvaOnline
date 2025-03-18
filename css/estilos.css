@@ -49,19 +49,20 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
+  padding: 8px;  /* Ajustado para igualar ao estilo dos outros botões */
   color: #A8D5BA;  /* Verde pastel claro para o botão "modelo" */
 }
 
+/* Ícones do botão modelo */
 #botaoModelo i {
   font-size: 20px;
   color: #A8D5BA;
-  opacity: 0.7;
 }
 
+/* Efeito hover no ícone do botão modelo */
 #botaoModelo i:hover {
-  opacity: 1;
   color: #76C7B7;  /* Cor suave de hover para o botão modelo */
+  opacity: 1;
 }
 
 /* Estilo para o conteúdo da prova */
