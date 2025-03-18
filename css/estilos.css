@@ -20,13 +20,13 @@
   border: none;
   padding: 8px;
   cursor: pointer;
-  color: #7cff81;  /* Cor padrão para os botões */
+  color: #066132d8;  /* Cor padrão para os botões */
 }
 
 /* Ícones nos botões */
 .botoes-container button i {
   font-size: 20px;
-  color: #7cff81;  /* Cor dos ícones */
+  color:#066132d8;  /* Cor dos ícones */
 }
 
 /* Efeito hover nos ícones */
@@ -50,12 +50,12 @@
   border: none;
   cursor: pointer;
   padding: 5px;
-  color: #4CAF50;  /* Cor do botão "modelo" */
+  color: #066132d8;  /* Cor do botão "modelo" */
 }
 
 #botaoModelo i {
   font-size: 20px;
-  color: #4CAF50;
+  color: #066132d8;
   opacity: 0.7;
 }
 
