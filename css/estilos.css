@@ -4,7 +4,7 @@
   color: green;
 }
 
-/* Botões com apenas ícones visíveis (sem fundo nem borda) */
+/* Contêiner de botões */
 .botoes-container {
   position: fixed;
   top: 10px;
@@ -20,17 +20,18 @@
   border: none;
   padding: 8px;
   cursor: pointer;
+  color: #4CAF50;  /* Cor padrão para os botões */
 }
 
-/* Ícones verdes elegantes */
+/* Ícones nos botões */
 .botoes-container button i {
-  color: #4CAF50;
   font-size: 20px;
+  color: #4CAF50;  /* Cor dos ícones */
 }
 
 /* Efeito hover nos ícones */
 .botoes-container button i:hover {
-  color: #45a049;
+  color: #4CAF50;  /* Mantém a mesma cor durante o hover */
 }
 
 /* Oculta os botões ao imprimir */
@@ -49,7 +50,7 @@
   border: none;
   cursor: pointer;
   padding: 5px;
-  z-index: 1000;
+  color: #4CAF50;  /* Cor do botão "modelo" */
 }
 
 #botaoModelo i {
@@ -60,16 +61,17 @@
 
 #botaoModelo i:hover {
   opacity: 1;
-  color: #45a049;
+  color: #4CAF50;  /* Mantém a mesma cor durante o hover */
 }
 
-/* Outros estilos */
+/* Estilo para o conteúdo da prova */
 .dados-prova {
   margin: 20px auto;
   width: 80%;
   line-height: 2;
 }
 
+/* Campos editáveis com sublinhado */
 .linha-editavel {
   display: inline-block;
   border-bottom: 1px solid black;
@@ -80,6 +82,7 @@
   background: transparent;
 }
 
+/* Estilo do título */
 h3 {
   margin-top: 60px;
 }
