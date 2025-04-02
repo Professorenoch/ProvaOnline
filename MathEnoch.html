@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>MathEnoch</title>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      width: 100vw;
+      margin: 10;
+      background-color: #000000;
+      font-family: "Times New Roman", Times, serif;
+      color: white;
+      overflow: hidden;
+    }
+    .main-container {
+      display: flex;
+      flex: 1;
+      width: 100%;
+    }
+    .visualizador {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: rgb(187, 160, 72);
+      padding: 20px;
+      max-height: 75vh;
+      font-size: 50px;
+    }
+    #equation {
+      text-align: left;
+      white-space: pre-wrap;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+    }
+    #equation::-webkit-scrollbar {
+      width: 5px; /* Largura da barra vertical */
+      height: 5px; /* Altura da barra horizontal */
+    }
+    
+    #equation::-webkit-scrollbar-track {
+      background: #222;
+      border-radius: 10px;
+    }
+    
+    #equation::-webkit-scrollbar-thumb {
+      background: rgb(187, 160, 72);
+      border-radius: 10px;
+    }
+    
+    #equation::-webkit-scrollbar-thumb:hover {
+      background: #bbb;
+    }
+    
+    .botoes {
+      width: 15%;
+      display: grid;
+      gap: 1px;
+      padding: 1px;
+      background-color: #222222;
+      }
+    
+      .math-button {
+        background-color: #444444;
+        color: #FFFFFF;
+        border: none;
+        width: 70px;
+        height: 20px;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    .math-button:hover {
+      background-color: #666666;
+    }
+    .editor {
+      height: 25vh;
+      width: 100%;
+      background-color: #000000;
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    textarea {
+      flex: 1;
+      background: none;
+      border: none;
+      color: #00FF00;
+      font-size: 18px;
+      font-family: Consolas, 'Courier New', monospace;
+      padding: 5px;
+      outline: none;
+      resize: none;
+      height: 100%;
+      overflow-y: auto;
+    }
+    .math-block {
+      display: block;
+      text-align: center;
+      margin: 10px 0;
+      color: white;
+    }
+    .math-inline {
+      color: white;
+    }
+    .range-container {
+      margin-top: 300px;
+      transform: rotate(270deg);
+      text-align: center;
+      width: 30px;
+      height: 50px;
+    }
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 200px;
+      height: 8px;
+      background:  rgb(187, 160, 72);
+      outline: none;
+      border-radius: 5px;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10px;
+      height: 10px;
+      background: rgb(0, 0, 0);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    input[type="range"]::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+      background: yellow;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+  <style>
+    /* Estilizando o botão principal */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+  
+    .dropdown-btn {
+      background-color: #444;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      font-family: 'Times New Roman', Times, sans-serif;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      min-width: 50px;
+    }
+  
+    /* Estilizando o conteúdo do dropdown */
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #222;
+      min-width: 50px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      z-index: 1;
+    }
+  
+    /* Mostra o dropdown quando ativo */
+    .dropdown-content.show {
+      display: block;
+    }
+  
+    /* Ajusta os botões dentro do dropdown */
+    .dropdown-content .math-button {
+      width: 100%;
+      text-align: left;
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #444;
+      margin: 5px 0;
+    }
+  
+    .dropdown-content .math-button:hover {
+      background-color: #666666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main-container">
+    <div class="visualizador">
+      <div id="equation"></div>
+    </div>
+
+    <div class="dropdown">
+      <button class="math-button dropdown-btn" onclick="toggleDropdown()">Arquivo</button>
+      <div class="dropdown-content" id="dropdown-menu">
+        <button class="math-button" onclick="salvar()">Salvar</button>
+        <button class="math-button" onclick="document.getElementById('fileInput').click()">Abrir</button>
+        <input type="file" id="fileInput" style="display: none;" onchange="abrirArquivo(event)">
+        <button class="math-button" onclick="salvarComoHTML()">HTML</button>
+      </div>
+    </div>
+
+    <div class="dropdown">
+      <button class="math-button dropdown-btn" onclick="toggleDropdownSymbols()">ω</button>
+      <div class="dropdown-content" id="dropdown-symbols">
+        <button class="math-button" onclick="inserirTexto('\\alpha')">α</button>
+        <button class="math-button" onclick="inserirTexto('\\beta')">β</button>
+        <button class="math-button" onclick="inserirTexto('\\gamma')">γ</button>
+        <button class="math-button" onclick="inserirTexto('\\delta')">δ</button>
+        <button class="math-button" onclick="inserirTexto('\\epsilon')">ε</button>
+        <button class="math-button" onclick="inserirTexto('\\zeta')">ζ</button>
+        <button class="math-button" onclick="inserirTexto('\\eta')">η</button>
+        <button class="math-button" onclick="inserirTexto('\\theta')">θ</button>
+        <button class="math-button" onclick="inserirTexto('\\iota')">ι</button>
+        <button class="math-button" onclick="inserirTexto('\\kappa')">κ</button>
+        <button class="math-button" onclick="inserirTexto('\\lambda')">λ</button>
+        <button class="math-button" onclick="inserirTexto('\\mu')">μ</button>
+        <button class="math-button" onclick="inserirTexto('\\nu')">ν</button>
+        <button class="math-button" onclick="inserirTexto('\\xi')">ξ</button>
+        <button class="math-button" onclick="inserirTexto('\\omicron')">ο</button>
+        <button class="math-button" onclick="inserirTexto('\\pi')">π</button>
+        <button class="math-button" onclick="inserirTexto('\\rho')">ρ</button>
+        <button class="math-button" onclick="inserirTexto('\\sigma')">σ</button>
+        <button class="math-button" onclick="inserirTexto('\\tau')">τ</button>
+        <button class="math-button" onclick="inserirTexto('\\upsilon')">υ</button>
+        <button class="math-button" onclick="inserirTexto('\\phi')">φ</button>
+        <button class="math-button" onclick="inserirTexto('\\chi')">χ</button>
+        <button class="math-button" onclick="inserirTexto('\\psi')">ψ</button>
+        <button class="math-button" onclick="inserirTexto('\\omega')">ω</button>
+      </div>
+    </div>
+    
+    <div class="dropdown">
+      <button class="math-button dropdown-btn" onclick="toggleDropdownUppercase()">Ω</button>
+      <div class="dropdown-content" id="dropdown-uppercase">
+        <button class="math-button" onclick="inserirTexto('\\Gamma')">Γ</button>
+        <button class="math-button" onclick="inserirTexto('\\Delta')">Δ</button>
+        <button class="math-button" onclick="inserirTexto('\\Zeta')">Ζ</button>
+        <button class="math-button" onclick="inserirTexto('\\Theta')">Θ</button>
+        <button class="math-button" onclick="inserirTexto('\\Lambda')">Λ</button>
+        <button class="math-button" onclick="inserirTexto('\\Xi')">Ξ</button>
+        <button class="math-button" onclick="inserirTexto('\\Pi')">Π</button>
+        <button class="math-button" onclick="inserirTexto('\\Rho')">Ρ</button>
+        <button class="math-button" onclick="inserirTexto('\\Sigma')">Σ</button>
+        <button class="math-button" onclick="inserirTexto('\\Tau')">Τ</button>
+        <button class="math-button" onclick="inserirTexto('\\Upsilon')">Υ</button>
+        <button class="math-button" onclick="inserirTexto('\\Phi')">Φ</button>
+        <button class="math-button" onclick="inserirTexto('\\Chi')">Χ</button>
+        <button class="math-button" onclick="inserirTexto('\\Psi')">Ψ</button>
+        <button class="math-button" onclick="inserirTexto('\\Omega')">Ω</button>
+      </div>
+    </div>
+  
+    <div class="dropdown">
+      <button class="math-button dropdown-btn" onclick="toggleDropdownMath()">MAT</button>
+      <div class="dropdown-content" id="dropdown-math">
+        <button class="math-button" onclick="inserirTexto('$ $')">$ $</button>
+        <button class="math-button" onclick="inserirTexto('$$ $$')">$$ $$</button>
+        <button class="math-button" onclick="inserirTexto('\\begin{align}\n  a + b &= c \\\\ \n  d - e &= f \n \\end{align}')">align</button>
+        <button class="math-button" onclick="inserirTexto('\\begin{eqnarray*}\n  x &=& y + z \\\\ \n  p &=& q - r \n \\end{eqnarray*}')">eqnarray*</button>
+        
+        <button class="math-button" onclick="inserirTexto('\\int_{ }^{ }')">∫</button>
+        <button class="math-button" onclick="inserirTexto('\\sum_{}^{ }')">Σ</button>
+        <button class="math-button" onclick="inserirTexto('\\infty')">∞</button>
+        <button class="math-button" onclick="inserirTexto('\\partial')">∂</button>
+        <button class="math-button" onclick="inserirTexto('\\mathbb{N}')"> ℕ </button>
+        <button class="math-button" onclick="inserirTexto('\\mathbb{Q}')"> ℚ </button>
+        <button class="math-button" onclick="inserirTexto('\\mathbb{I}')"> 𝕀</button>
+        <button class="math-button" onclick="inserirTexto('\\mathbb{R}')"> ℝ </button>
+        <button class="math-button" onclick="inserirTexto('\\mathbb{C}')"> ℂ </button>
+
+
+        
+      </div>
+    </div>
+    
+      <div class="range-container">
+        <label for="font-size-range"></label>
+        <input type="range" id="font-size-range" min="10" max="80" value="30" oninput="ajustarTamanhoFonte()">
+      </div>
+  
+  </div>
+  <div class="editor">
+    <textarea id="input" oninput="atualizarVisualizador()"></textarea>
+  </div>
+  <script>
+    function atualizarVisualizador() {
+      let texto = document.getElementById("input").value;
+      localStorage.setItem("conteudoTexto", texto);
+      renderizarEquacao();
+    }
+    function salvar() {
+      let nomeArquivo = prompt("Digite o nome do arquivo:", ".tex");
+      if (nomeArquivo) {
+        let texto = document.getElementById("input").value;
+        let blob = new Blob([texto], { type: "text/plain" });
+        let link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = nomeArquivo;
+        link.click();
+      }
+    }
+    function inserirTexto(texto) {
+      let input = document.getElementById("input");
+      let posicao = input.selectionStart;
+      let valor = input.value;
+      input.value = valor.slice(0, posicao) + texto + valor.slice(posicao);
+      input.focus();
+      atualizarVisualizador();
+    }
+    function ajustarTamanhoFonte() {
+      let tamanho = document.getElementById("font-size-range").value;
+      document.getElementById("equation").style.fontSize = tamanho + "px";
+    }
+    function abrirArquivo(event) {
+      let arquivo = event.target.files[0];
+      if (!arquivo) return;
+  
+      let leitor = new FileReader();
+      leitor.onload = function(e) {
+        document.getElementById("input").value = e.target.result;
+        atualizarVisualizador();
+      };
+      leitor.readAsText(arquivo);
+    }
+     
+    function renderizarEquacao() {
+      let inputText = localStorage.getItem("conteudoTexto") || "";
+      // Substituição de acentos no estilo LaTeX para caracteres Unicode
+      let replacements = {
+        "\\\\'{a}": "á", "\\\\'{e}": "é", "\\\\'{i}": "í", "\\\\'{o}": "ó", "\\\\'{u}": "ú",
+        "\\\\`{a}": "à", "\\\\`{e}": "è", "\\\\`{i}": "ì", "\\\\`{o}": "ò", "\\\\`{u}": "ù",
+        "\\\\^{a}": "â", "\\\\^{e}": "ê", "\\\\^{i}": "î", "\\\\^{o}": "ô", "\\\\^{u}": "û",
+        '\\\\\"{a}': "ä", '\\\\\"{e}': "ë", '\\\\\"{i}': "ï", '\\\\\"{o}': "ö", '\\\\\"{u}': "ü",
+        "\\\\~{a}": "ã", "\\\\~{o}": "õ", "\\\\~{n}": "ñ",
+        "\\\\c{c}": "ç"
+    };
+
+       for (let key in replacements) {
+       inputText = inputText.replace(new RegExp(key, "g"), replacements[key]);
+       }
+
+      let formattedText = inputText
+        // Suporte para \begin{equation} ... \end{equation}
+        .replace(/\\begin{equation}([\s\S]*?)\\end{equation}/g, (match, p1) => 
+          `<div class="math-block">${katex.renderToString(p1, { displayMode: true })}</div>`
+        )
+           // Suporte para \begin{equation*} ... \end{equation*}
+           .replace(/\\begin{equation\*}([\s\S]*?)\\end{equation\*}/g, (match, p1) => 
+           `<div class="math-block">${katex.renderToString(p1, { displayMode: true })}</div>`
+         )
+        // Suporte para \begin{align} ... \end{align}
+        .replace(/\\begin{align}([\s\S]*?)\\end{align}/g, (match, p1) => {
+          let alignEquations = p1
+            .trim()
+            .split(/\\\\/) // Divide as equações pelo `\\`
+            .map(eq => eq.trim()) // Remove espaços extras
+            .join(" \\\\ "); // Junta novamente para o KaTeX interpretar corretamente
+    
+          return `<div class="math-block">${katex.renderToString("\\begin{aligned}" + alignEquations + "\\end{aligned}", { displayMode: true })}</div>`;
+        })
+        // Suporte para \begin{eqnarray*} ... \end{eqnarray*}
+        .replace(/\\begin{eqnarray\*}([\s\S]*?)\\end{eqnarray\*}/g, (match, p1) => {
+          let eqnarrayEquations = p1
+            .trim()
+            .split(/\\\\/) // Divide as equações pelo `\\`
+            .map(eq => eq.trim()) // Remove espaços extras
+            .join(" \\\\ "); // Junta novamente
+    
+          return `<div class="math-block">${katex.renderToString("\\begin{aligned}" + eqnarrayEquations + "\\end{aligned}", { displayMode: true })}</div>`;
+        })
+        // Suporte para $$ ... $$ (já existente)
+        .replace(/\$\$(.*?)\$\$/gs, (match, p1) => 
+          `<div class="math-block">${katex.renderToString(p1, { displayMode: true })}</div>`
+        )
+        // Suporte para \[ ... \] (já existente)
+        .replace(/\\\[(.*?)\\\]/gs, (match, p1) =>  
+          `<div class="math-block">${katex.renderToString(p1, { displayMode: true })}</div>`
+        )
+        // Suporte para $ ... $ (já existente)
+        .replace(/\$(.*?)\$/g, (match, p1) => 
+          `<span class="math-inline">${katex.renderToString(p1)}</span>`
+        );
+    
+      let equationDiv = document.getElementById("equation");
+      equationDiv.innerHTML = formattedText;
+      equationDiv.scrollTop = equationDiv.scrollHeight; // Rola automaticamente para o final
+    }
+    renderizarEquacao();
+    function toggleDropdown() {
+      document.getElementById("dropdown-menu").classList.toggle("show");
+    }
+    function toggleDropdownSymbols() {
+      document.getElementById("dropdown-symbols").classList.toggle("show");
+    }
+    function toggleDropdownUppercase() {
+      document.getElementById("dropdown-uppercase").classList.toggle("show");
+    }
+ 
+    function toggleDropdownMath() {
+      document.getElementById("dropdown-math").classList.toggle("show");
+    }
+    function salvarComoHTML() {
+      let nomeArquivo = prompt("Digite o nome do arquivo:", "documento.html");
+      if (nomeArquivo) {
+        let conteudo = document.getElementById("equation").innerHTML;
+        let htmlContent = `
+    <!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <title>MathEnoch - Salvo</title>
+      <!-- Inclua o CSS do KaTeX para garantir a renderização correta -->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css">
+      <style>
+        body {
+          background-color: #000;
+          color: white;
+          margin: 20px;
+        }
+        .math-block {
+          margin: 10px 0;
+        }
+        /* Garante que o MathML seja ocultado */
+        .katex .katex-mathml {
+          position: absolute;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 0;
+          border: 0;
+          height: 1px;
+          width: 1px;
+          overflow: hidden;
+        }
+      </style>
+    </head>
+    <body>
+    ${conteudo}
+    </body>
+    </html>
+        `;
+        let blob = new Blob([htmlContent], { type: "text/html" });
+        let link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = nomeArquivo;
+        link.click();
+      }
+    }
+    
+
+     // Fecha o dropdown ao clicar fora
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropdown-btn')) {
+        let dropdowns = document.getElementsByClassName("dropdown-content");
+        for (let i = 0; i < dropdowns.length; i++) {
+          let openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
+    document.addEventListener("keydown", function(event) {
+      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'i') {
+        event.preventDefault();
+        inserirTexto("\\int_{ }^{ }");
+      }
+      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 's') {
+        event.preventDefault();
+        inserirTexto("\\sum_{ }^{ }");
+      }
+      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'l') {
+        event.preventDefault();
+        inserirTexto("\\lim\\limits_{ }");
+      }
+      if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'd') {
+        event.preventDefault();
+        inserirTexto("$$ $$");
+      }
+    });
+    
+      </script>
+    
+      
+</body>
+</html>
